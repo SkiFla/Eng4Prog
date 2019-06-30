@@ -1,0 +1,270 @@
+from playsound import playsound
+import random
+from os import system
+from termcolor import cprint
+import time
+import sys
+import matplotlib.pyplot as plt
+
+system('cls')
+
+story= '''
+          The year is 2019, it's a normal day at CatNana,
+          the kitten / banana factory where you've been made "Load Lead".
+          A job you wouldn't write home about (and haven't). You have to 
+          ensure your loading platform (a lever) stays balanced.\n
+          "A classic enginnering problem" Dr. Hawklin said. You can
+          still see the problem written on the chalkboard:\n 
+          M1 = M2; F1d1 = F2d2; F1 = (F2d2)/d1\n 
+          You'd like to write home to Mom and tell her how you're
+          using your BSET to help clean up last week's nuclear testing 
+          facility fire instead of loading bananas. Oh well, nothing a 
+          cold Stella Artois can't fix.\n 
+          You are finishing up your shift; just a few more boxes to go. 
+          All of the sudden CRAAAASH, you see Bob from maintenance open
+          the glass door to the factory with his face. "Bob, what has 
+          gotten into you?", you shriek, but he doesn't seem to hear you.
+          He is fixated on something- No, not just something- the kittens!
+          Bob is stalking the kittens!!!\n
+          ... and Bob's HUNGRY!'''
+
+def rangen():
+  num = random.randrange(1,15)
+  bob = random.randrange(452,2226)
+  return {'num':num,'bob':bob}
+
+def win(points):
+  points += 1
+  cprint(''' 
+                                   |\__/,|   (`\\
+                                   |_ _  |.--.) )
+                                   ( T   )     /
+                                  (((^_(((/(((_>
+                              Good Job! Safe Kittens.''', 'yellow')
+  time.sleep(2)
+  return {'points':points, 'go':1}
+
+def lose():
+  cprint('''                                        MMMMMMMM 
+                                       MMN.. ...MM 
+                                     MM=...   ..~M: 
+     MMMMMMM                        MM.....M M...MM  
+    MM.....ZMMMM                  $MZ.... ...~... MI 
+    MM.    .. .=MMM              +MO...... ... ...MM 
+   $M    M  .   ..MMN       NMMMMMMMMMMMMO   .....:M 
+   MM. . ,..M.......MMMMMMMMMZ..........ZMMMMMM. ..M  
+   MM. . N  .   MMMMM.. ....   ..M .......... +MMM.MD 
+   MM. . M. .MMMM........ .M .MMMMMM.............MMMD  
+   MM  . .,MMM...........MNMM .:,., ...............MMM 
+    M, . MM~.. ..  . ...M.N......................... MM 
+    MM.MM~..   . ... . ... . ...... ~.8$MMMMMMMO .....MM 
+    MMMM.. . . ..... ..... ........ ,MM        MM ... MM
+     MM. . ...?... . ... . ........ M             M=...OM
+   MM .....  , $MMMMMM .. . ......M                M. ..MM
+   M~ .....M                M....=$       MM        :D..8M
+  OM.. . .M                  M... M      =MM        M...MM
+  MM  .. IM                  M....M                 M...MM
+  MM    .N         MMM       M ....M               M ..,M
+  MM. .. N~        ZMM       M ......MM          MM .. MM
+  MM  . ..M,                M. .......??MM.....MMM....MM 
+    MM . . .OM            M . NMMMMMM,MM ....... MMM
+    MMO .. ...?MN. .. .MM...MM \/   \/ MMM... .MMMZ
+      MM . ..O.M,..........DMM           M...MMMZ 
+      .MMM. ....   ...   ..~MM /\   /\ MM...MMM 
+          MMMMMN,....... ..8MMMMMMMMMMM...MN
+               MMMMMMMMMMMMMM,....M.......MMM8
+                   MI..... .. . ..M.......M .MMM 
+                   M,... . .. MMM M.......MN...MM
+                  ZM ............MM+......MMMOZMN
+               8.IMM.... .O8. ......M........M
+           M.MMMMM,M,.......M .......?..... :MMMM
+       ,MMMMM:+....MM........7........M.....MM.. MM
+    MMMMMM......... MM .................N, :M=....M
+   MM... ............MM...................MMN...=MM
+   7OMMM.M.. ..... .N:MM,...............+MMNMMMMN 
+      Z+MMMMMMMMMNMMMMMMMMM..........+MMM
+                      $M..MMMMMMMMMMMM
+                      $M....MM
+                       M ..+M
+                       IMMMM''','green')
+  cprint('''__  __  ______  __  __       __      ______  ______  ______    
+/\ \_\ \/\  __ \/\ \/\ \     /\ \    /\  __ \/\  ___\/\  ___\   
+\ \____ \ \ \/\ \ \ \_\ \    \ \ \___\ \ \/\ \ \___  \ \  __\   
+ \/\_____\ \_____\ \_____\    \ \_____\ \_____\/\_____\ \_____\ 
+  \/_____/\/_____/\/_____/     \/_____/\/_____/\/_____/\/_____/''','red')
+  print('\n   Good luck with the zombie kittens...')
+  time.sleep(3)
+  system('cls')
+  return 0
+
+def gostory(story):
+    print('\n\n\n\n\n\n\n\n')
+    playsound('type.mp3', False)
+    for char in story:
+        time.sleep(0.05)
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        
+final= '''                     .- . _
+            .:       `      " - . _
+     \     ::          `            ""--..__                                                . . . :  :  :
+     `\   ::  :'         ` _ _              ""--..__                       ......_._._:.:.: " " " "  "  "
+      `\.::  :'                " " " - ----.....___ ""-##.____...:::""""""""""""
+       : :  :'                                     "::":"-----......______
+     ."  ""--..__ .                               .:'.:                   """"""-----. . . _ _ _
+    /.""--.._    ""--..__ :                     .:'. :                                           "  "  "
+   /'   .:   ":-.._      ""--..__             .:'.  :
+    `-._:__.-"     ""-.._        ""--...___..:'.   :
+      .:               /.""-..__...---""-.'"-:"--.:_
+                       "      :  Zombie .'    ::""-."";.
+                             :_  squad  :     ::    ":: `-.
+                             :::::.._   '-._ ::      ::    `.
+                             : """:::::.._  "''-._  ::       :
+                             :       "":::::.._   "':         :
+                             `.           """:::::-:_         :
+                               :.               """::::::...   :
+                     ..__..--"" ".      .              """::::::
+                        ""--..__  :.--""                      ":
+                                ""-+:=:_                   ("-:
+                                   :    ""--.._             []'
+                                   :          :""--..___..--"
+                                   :          :
+                                 ""--..__     :
+                                         ""--.:_
+                                                ""--..__.'''
+final1= '''              __   ___         ___  __   __   __   ___        ___      ___  __  
+             |__) |__  | |\ | |__  /  \ |__) /  ` |__   |\/| |__  |\ |  |  /__` 
+             |  \ |___ | | \| |    \__/ |  \ \__, |___  |  | |___ | \|  |  .__/ 
+                                                                   
+                                  ___          __   __          ___  __           
+                  |__|  /\  \  / |__      /\  |__) |__) | \  / |__  |  \          
+                  |  | /~~\  \/  |___    /~~\ |  \ |  \ |  \/  |___ |__/'''
+    
+
+header= '''\n\n\n\n __    __   __      _ ______    _____   ____   ______     _____      ____    ____   ______    
+ ) )  ( (  /  \    / (_  __ \  / ___/  (    ) (_  __ \   (_   _)    / __ \  (    ) (_  __ \   
+( (    ) )/ /\ \  / /  ) ) \ \( (__    / /\ \   ) ) \ \    | |     / /  \ \ / /\ \   ) ) \ \  
+ ) )  ( ( ) ) ) ) ) ) ( (   ) )) __)  ( (__) ) ( (   ) )   | |    ( ()  () ( (__) ) ( (   ) ) 
+( (    ) ( ( ( ( ( (   ) )  ) ( (      )    (   ) )  ) )   | |   _( ()  () ))    (   ) )  ) ) 
+ ) \__/ (/ /  \ \/ /  / /__/ / \ \___ /  /\  \ / /__/ /  __| |___) \ \__/ //  /\  \ / /__/ /  
+ \______(_/    \__/  (______/   \____/__(  )__(______/   \________/ \____//__(  )__(______/'''
+
+whole = '''\n                                                                         (()))
+                                                                        /|0 0|    
+                                                                       /\( O ) 
+                                                               ___.-._/\/ 
+                                                              /=`_'-'-'/  !!
+                                                              |-{-_Bob}     !
+                                                              (-{-_-_-}    !
+                                                               \{_-_-_}   !  
+                                                                }-_-_-}
+            _____                                               {-_|-_}
+           |     |                                              {-_|_-}
+           |Nanas|                                              {_-|-_}
+           |_____|                                              {_-|-_}
+           _____________________________________________________%%@ @%%_
+                                     /\\
+                                    /__\\'''
+
+
+def play(points,d1,d2,bob,header):
+  banner = '''         _____                   _   _            _    _ _   _                 _ _ _ 
+        /  ___|                 | | | |          | |  (_| | | |               | | | |
+        \ `--.  __ ___   _____  | |_| |__   ___  | | ___| |_| |_ ___ _ __  ___| | | |
+         `--. \/ _` \ \ / / _ \ | __| '_ \ / _ \ | |/ | | __| __/ _ | '_ \/ __| | | |
+        /\__/ | (_| |\ V |  __/ | |_| | | |  __/ |   <| | |_| ||  __| | | \__ |_|_|_|
+        \____/ \__,_| \_/ \___|  \__|_| |_|\___| |_|\_|_|\__|\__\___|_| |_|___(_(_(_)\n
+        Bob has climbed onto the lever above the kittens, keep him from falling into 
+               the kittens. Using the bananas, Keep the lever in equilibrium.'''
+                                                                             
+                                                                             
+
+
+  top = '''\n                                                                         (()))  
+                                                                        /|0 0|    
+                                                                       /\( O ) 
+                                                               ___.-._/\/ 
+                                                              /=`_'-'-'/  !!
+                                                              |-{-_Bob}     !
+                                                              (-{-_-_-}    !
+                                                               \{_-_-_}   !  
+                                                                }-_-_-}
+            _____                                               {-_|-_}
+           |     |                                              {-_|_-}
+           |Nanas|                                              {_-|-_}'''
+  bottom = '''           |_____|                                              {_-|-_}
+           _____________________________________________________%%@ @%%_'''
+
+  ful1= num*' '+'                                        /\\'
+  ful2= num*' '+'                                       /__\\'
+  arrow1= '--d1'+(d1-8)*'-'
+  arrow2= (d2-8)*'-'+'d2--'
+  bforc= 'Bob = '+str(bob)+'N'
+
+  cprint(header,'red')
+  print(banner)
+  cprint(top,'green')
+  cprint(bottom,'green')
+  cprint(ful1,'green')
+  cprint(ful2,'green')
+  print('                  <',arrow1,'..',arrow2,'>')
+  print('\n                ','d1  = '+str(d1)+'ft','d2\
+  = '+str(d2)+'ft', bforc, sep='     ')
+  actans = round((bob*d2)/d1,0)
+  ans = float(input('\n                How much force in bananas(round to nearest N)?  '))
+  if ans == actans:
+    y = win(points)
+    points= y['points']
+    go = y['go']
+    system('cls')
+  else:
+    system('cls')
+    go = lose()
+  return{'points':points, 'go':go}
+
+
+cprint(header,'red')
+cprint(whole,'green')
+print('\n\n\n\n\n                                    By: David Murawski')
+playsound('fur_eliseintro.mp3', False)
+cprint('\n\n\n\n\n                                      Please wait...','green')
+time.sleep(10)
+system('cls')
+gostory(story)
+time.sleep(3)
+system('cls')
+go = 1
+points = 0
+start = time.time()
+timeleft = 2.55
+catime = []
+cats = []
+playsound('fur_elise.mp3', False)
+catt = 0
+while go == 1 and timeleft > 0:
+  vars = rangen()
+  num = vars['num']
+  bob = vars['bob']
+  d1 = 23+num
+  d2= 23-num
+  x= play(points,d1,d2,bob,header)
+  points = (x['points'])
+  go = x['go']
+  end = time.time()
+  timeleft = 2.75 -((end-start)/60)  
+  print('   Time until reinforcements = ', '{:.2}'.format(timeleft), ' mins.')
+  print('   Your score = ', points)  
+  if go == 1:
+    catt += 1
+    catime.append(round(((end-start)/60),2))
+    cats.append(catt)
+system('cls')
+cprint(final,'yellow')
+cprint(final1,'green')
+input('\n                              Press Enter to see your Stats')
+plt.title('You saved ' + str(points) + ' kittens.')
+plt.xlabel('Kittens saved')
+plt.ylabel('Elapsed Time (Minutes)')
+plt.plot(cats,catime,'-gD')
+plt.show()
+input()
