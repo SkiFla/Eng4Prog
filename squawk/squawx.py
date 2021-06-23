@@ -1,7 +1,4 @@
- != 'quack'):
-            trapdoor = input("\nError: try again.\nPress enter to continue.")
-    while (trapdoor != "quack" and gdopt != 1):
-        task, pn, sn, dscr = inquire(#Squawx
+#Squawx
 
 import datetime
 
@@ -81,7 +78,10 @@ def main():
     
     print("Welcome to Squawk Book")
     trapdoor = input("Press enter to continue.\n")
-    while (trapdoor != "" and trapdoor)
+    while (trapdoor != "" and trapdoor != 'quack'):
+            trapdoor = input("\nError: try again.\nPress enter to continue.")
+    while (trapdoor != "quack" and gdopt != 1):
+        task, pn, sn, dscr = inquire()
         task, pn, sn, dscr = decode(task, pn, sn, dscr)
         preview(task, pn, sn, dscr)
         gdopt = int(input('''\nDoes this look right?
