@@ -1,6 +1,7 @@
-# Shipheus
-# 4/10/18
-# MicroDon.py
+ != 'quack'):
+            trapdoor = input("\nError: try again.\nPress enter to continue.")
+    while (trapdoor != "quack" and gdopt != 1):
+        task, pn, sn, dscr = inquire(#Squawx
 
 import datetime
 
@@ -9,107 +10,57 @@ def newPage():
     print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
 
 def inquire():
-    area = int(input('''\nPlease choose work area.
+    task = int(input('''\nWhat would you like to do?
     *********
-    1. MGB
-    2. Topcoat
-    3. Dress
+    1. Create a squawk
+    2. Disposition a squawk
+    3. Close a squawk
+    4. Just looking
     **********
     '''))
-    if (area == 2):
-        booth = input('What booth? ')
-    else:
-        booth = ''
-    if(area == 1):
-        mask = input('How many parts did you mask? \n')
-        grit = input('How many parts did you grit blast? \n')
-        bond = input('How many parts did you bond coat? \n')
-        eos = ''
-        bos = ''
-        p_s = ''
-        p_f = ''
-    else:
-        bos = int(input('''\nWas there a part in process at the beginning of shift?
-    **********
-    1- yes
-    2- no
-    **********
-    '''))
-        p_s = int(input('How many parts did you start? \n')) #parts_start
-        p_f = int(input('How many parts did you finish? \n'))#parts_finish
-        eos = int(input('''\nWas there a part in process at the end of shift?
-    **********
-    1- yes
-    2- no
-    **********
-    '''))
-        mask = ''
-        grit = ''
-        bond = ''
-    return area, bos, p_s, p_f, eos, mask, grit, bond, booth
 
-def decode(shift, area, bos, p_s, p_f, eos, mask, grit, bond, booth):
-    shift = shift + ' shift'
-    if(area == 1):
-        area = 'MGB'
-        mask = mask + ' parts masked.'
-        grit = grit + ' parts gritblasted.'
-        bond = bond + ' parts bondcoated.'
-        p_s = ''
-        p_f = ''
-    elif(area == 2):
-        area = 'Topcoat'
-        booth = 'Booth ' + str(booth)
-    else:
-        area = 'Dress'
-    if(bos == 1):
-        bos = 'There was part in progress at bos.'
-    elif(bos == 2):
-        bos = ''
-    if(eos == 1):
-        eos = 'There was a part in progress at eos.'
-    elif(eos == 2):
-        eos = ''
-    if(area != 'MGB'):
-        p_s = str(p_s) + ' parts started.'
-        p_f = str(p_f) + ' parts finished.'
-    return area, bos, eos, mask, grit, bond, p_s, p_f, booth
+    if(task == 1):
+        pn = input('Whats the part number? \n')
+        sn = input('Whats the serial number? \n')
+        dscr = input('Whats the discrepency? \n')
+       
+    return task, pn, sn, dscr
+
+def decode(task, pn, sn, dscr):
+    if(task == 1):
+        pn = 'Part number: '+ pn
+        sn = 'Serial number: '+ sn
+        dscr = 'Discrepency: '+ dscr
+
+    return task, pn, sn, dscr
         
-def preview(shift, area, bos, p_s, p_f, eos, mask, grit, bond, booth):
+def preview(task,pn, sn, dscr):
     print('\n************************************\n\n' \
-    + str(datetime.date.today()) + ' \n' + shift)
-    print('Area: ' + area)
-    if(area == 'Topcoat'):
-        print(booth)
+    + str(datetime.date.today()))
+
     print()
-    if(area == 'MGB'):
-        print(mask)
-        print(grit)
-        print(bond)
-    if(bos != ''):
-        print(bos)
-    if(area != 'MGB'):
-        print(p_s)
-        print(p_f)
-    if(eos != ''):
-        print(eos)
+    if(task == 1):
+        print(pn)
+        print(sn)
+        print(dscr)
+
     print('\n************************************')
        
-def output(shift, trapdoor, gdopt, area, bos, p_s, p_f, eos, mask, grit, bond, booth, fileName):
+def output(trapdoor,gdopt,task,pn, sn, dscr, fileName):
    if(trapdoor == '' and gdopt == 1):    
         f = open(fileName + '.txt','a')
         outPut = (str(datetime.date.today()) \
-          + ' :: '  + shift + ' :: Area: ' + area + ':: ' + booth +'\n\n' + mask + ': '\
-          + grit + ': ' + bond + ': ' + bos + ': ' + p_s + ': ' + p_f + ': ' + eos \
+          + ' :: ' + pn + ': '\
+          + sn + ': ' + dscr\
           + '\n' + '************************************\n')
         f.write(outPut)
         f.close()
 
 def admin(fileName):
-    boss = input('''\nWelcome Leadman,
+    boss = input('''\nWelcome Q.E.,
 What would you like to do?\n
-1- View production
-2- clear all\n''')
+1- View Squawks
+2- Go home\n''')
     
     if(boss == '1'):
         f = open(fileName + '.txt', 'r')
@@ -117,40 +68,22 @@ What would you like to do?\n
         print('\n************************************\n' + show)
         f.close()
     elif(boss == '2'):
-        safe = input("\nAre you sure?\n1 = yes\n2 = no\n")
-        if(safe == '1'):
-            f = open(fileName + '.txt', 'w')
-            f.write('')
-            f.close()
-        else:
-            print('clear all aborted.')    
+        print('K, bye.')   
 
 def main():
     gdopt = 2
     
     # Name file
-    if (datetime.datetime.now().hour >= 0 and datetime.datetime.now().hour < 7):
-        shift = '3rd Shift'
-    elif (datetime.datetime.now().hour >= 7 and datetime.datetime.now().hour <= 15 ):
-        if (datetime.datetime.now().hour == 15 and datetime.datetime.now().minute >= 30):
-            shift = '2nd Shift'
-        else:
-            shift = '1st Shift'
-    else:
-        shift = '2nd Shift'
-    
-    fileName = str(datetime.date.today()) + '-' + shift
-    
     trapdoor = 'pizza'
+    fileName = 'moduleX'
     
-    print("Let's see what you've done today.")
+   
+    
+    print("Welcome to Squawk Book")
     trapdoor = input("Press enter to continue.\n")
-    while (trapdoor != "" and trapdoor != 'theprodigaldon'):
-            trapdoor = input("\nError: try again.\nPress enter to continue.")
-    while (trapdoor != "theprodigaldon" and gdopt != 1):
-        area, bos, p_s, p_f, eos, mask, grit, bond, booth = inquire()
-        area, bos, eos, mask, grit, bond, p_s, p_f, booth = decode(shift, area, bos, p_s, p_f, eos, mask, grit, bond, booth)
-        preview(shift, area, bos, p_s, p_f, eos, mask, grit, bond, booth)
+    while (trapdoor != "" and trapdoor)
+        task, pn, sn, dscr = decode(task, pn, sn, dscr)
+        preview(task, pn, sn, dscr)
         gdopt = int(input('''\nDoes this look right?
     **********
     1- yes
@@ -158,13 +91,13 @@ def main():
     **********
     '''))
         if(gdopt == 1):
-            output(shift, trapdoor, gdopt, area, bos, p_s, p_f, eos, mask, grit, bond, booth, fileName)
+            output(trapdoor,gdopt,task, pn, sn, dscr, fileName)
     
-    if(trapdoor == "theprodigaldon"):
+    if(trapdoor == "quack"):
         admin(fileName)
     lchance = input('\nWhat would you like to do next?\n1 = Exit\n2 = Rerun\n')
     if(lchance == '1'):
-        print('\nThanks for using MicroDon, Goodbye.')
+        print('\nThanks for using Squawx, Goodbye.')
     return lchance
     
 ##############################END FUNCTIONS####################################
